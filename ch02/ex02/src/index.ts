@@ -6,7 +6,7 @@
 この条件を満たすように型Speedを定義してください。
 */
 
-type Speed = /* ここを入力 */;
+type Speed = "slow" | "medium" | "fast";
 
 function getSpeed(speed: Speed): number {
   switch (speed) {
@@ -24,5 +24,7 @@ const slowSpeed = getSpeed("slow");
 const mediumSpeed = getSpeed("medium");
 const fastSpeed = getSpeed("fast");
 
+console.log(`slowSpeed=${slowSpeed}, midiumSpeed=${mediumSpeed}, fastSpeed=${fastSpeed}`);
+
 // エラー例
-getSpeed("veryfast");
+//getSpeed("veryfast");
