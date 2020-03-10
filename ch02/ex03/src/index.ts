@@ -12,19 +12,36 @@ declareを用いて宣言してください。
 簡単のために、第2引数に指定する関数は引数無しで何も返さない関数としてください。
 */
 
+interface IHandler { (/* 引数無し */): void };
+
+type AddEventListenerOption = {
+    capture?: boolean;
+    once?: boolean;
+    passive?: boolean;
+}
+
+declare function addEventListener(
+    arg: string,
+    handler: IHandler,
+    option?: boolean | AddEventListenerOption,
+): void;
+
+
 // 使用例
-addEventListener("foobar", () => {});
-addEventListener("event", () => {}, true);
-addEventListener("event2", () => {}, {});
-addEventListener("event3", () => {}, {
-  capture: true,
-  once: false
+addEventListener("foobar", () => { });
+addEventListener("event", () => { }, true);
+addEventListener("event2", () => { }, {});
+addEventListener("event3", () => { }, {
+    capture: true,
+    once: false
 });
 
 // エラー例
+/*
 addEventListener("foobar", () => {}, "string");
 addEventListener("hoge", () => {}, {
   capture: true,
   once: false,
   excess: true
 });
+*/
