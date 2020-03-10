@@ -7,7 +7,7 @@ myFilter関数は色々な型の配列を受け取れる点に注意してくだ
 必要に応じてmyFilterに型引数を追加しても構いません。
 */
 
-function myFilter(arr, predicate) {
+function myFilter<T>(arr: T[], predicate: (e: T) => boolean): T[] {
     const result = [];
     for (const elm of arr) {
         if (predicate(elm)) {
@@ -19,7 +19,9 @@ function myFilter(arr, predicate) {
 
 // 使用例
 const res = myFilter([1, 2, 3, 4, 5], num => num % 2 === 0);
+console.log(res);
 const res2 = myFilter(['foo', 'hoge', 'bar'], str => str.length >= 4);
+console.log(res2);
 
 // エラー例
-myFilter([1, 2, 3, 4, 5], str => str.length >= 4);
+//myFilter([1, 2, 3, 4, 5], str => str.length >= 4);
