@@ -6,8 +6,21 @@
 reducerに適切な型をつけてください。
 */
 
+type Action =
+  | {
+      type: "increment";
+      amount: number;
+    }
+  | {
+      type: "decrement";
+      amount: number;
+    }
+  | {
+      type: "reset";
+      value: number;
+    };
 
-const reducer = (state, action) => {
+const reducer = (state: number, action: Action) => {
   switch (action.type) {
     case "increment":
       return state + action.amount;
@@ -33,7 +46,8 @@ reducer(500, {
 }) === 0;
 
 // エラー例
-reducer(0,{
+/*reducer(0,{
     type: 'increment',
     value: 100,
 });
+*/

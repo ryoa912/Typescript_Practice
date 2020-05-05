@@ -24,7 +24,7 @@ interface EventPayloads {
 }
 
 class EventDischarger<E> {
-  emit(eventName, payload) {
+    emit<Ev extends keyof E>(eventName: Ev, payload: E[Ev]) {
     // 省略
   }
 }
@@ -41,7 +41,7 @@ ed.emit("stop", {
 ed.emit("end", {});
 
 // エラー例
-ed.emit("start", {
+/*ed.emit("start", {
   user: "user2",
   after: 0
 });
@@ -51,3 +51,4 @@ ed.emit("stop", {
 ed.emit("foobar", {
   foo: 123
 });
+*/

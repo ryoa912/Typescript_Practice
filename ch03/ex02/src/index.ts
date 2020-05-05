@@ -5,6 +5,7 @@ PartialはTypeScriptの標準ライブラリに定義されている型で、
 MyPartialという名前でこれを実装してください。
 */
 
+type MyPartial<T> = { [K in keyof T]?: T[K] };
 
 // 使用例
 /*

@@ -7,8 +7,7 @@ JavaScriptでは与えられなかった引数はundefinedが入ることが知�
 以上の動作をするように、型Func<A, R>を定義しなおしてください。
 */
 
-
-type Func<A, R> = (arg: A) => R;
+type Func<A, R> = undefined extends A ? (arg?: A) => R : (arg: A) => R;
 
 // 使用例
 const f1: Func<number, number> = num => num + 10;
@@ -18,4 +17,4 @@ const v2: number = f2();
 const v3: number = f2(undefined);
 
 // エラー例
-const v4: number = f1();
+// const v4: number = f1();
